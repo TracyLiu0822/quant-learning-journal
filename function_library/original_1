@@ -1,0 +1,1075 @@
+# lecture01-11 函数清单
+# 说明：lecture06 目录未发现；lecture01 的 notes.md 和 summary.md 当前未发现函数。
+
+## 自己封装的函数（def / lambda）
+
+# 计算普通年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 7)
+pv_annuity(c, r, n)
+
+# 计算普通年金终值 + 来自 lecture02/lecture02.ipynb (cell 1, line 12)
+fv_annuity(c, r, n)
+
+# 计算预付年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 16)
+pv_annuity_due(c, r, n)
+
+# 计算预付年金终值 + 来自 lecture02/lecture02.ipynb (cell 1, line 20)
+fv_annuity_due(c, r, n)
+
+# 计算增长年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 24)
+pv_growing_annuity(c, r, g, n)
+
+# 计算增长年金终值 + 来自 lecture02/lecture02.ipynb (cell 1, line 29)
+fv_growing_annuity(c, r, g, n)
+
+# 计算预付增长年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 34)
+pv_growing_annuity_due(c, r, g, n)
+
+# 计算预付增长年金终值 + 来自 lecture02/lecture02.ipynb (cell 1, line 37)
+fv_growing_annuity_due(c, r, g, n)
+
+# 计算普通永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 40)
+pv_perpetuity(c, r)
+
+# 计算预付永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 43)
+pv_perpetuity_due(c, r)
+
+# 计算增长永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 46)
+pv_growing_perpetuity(c, r, g)
+
+# 计算预付增长永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 49)
+pv_growing_perpetuity_due(c, r, g)
+
+# 计算递延永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 52)
+pv_perpetuity_delayed(c, r, k)
+
+# 计算递延增长永续年金现值 + 来自 lecture02/lecture02.ipynb (cell 1, line 55)
+pv_growing_perpetuity_delayed(c, r, g, k)
+
+# 下载股票并计算日收益率 + 来自 lecture02/lecture02.ipynb (cell 4, line 12)
+ret_f(ticker, begdate, enddate)
+
+# 计算有效年利率 + 来自 lecture04/lecture04.ipynb (cell 0, line 4)
+effect(apr, nper)
+
+# 换算不同复利频率下的有效利率 + 来自 lecture04/lecture04.ipynb (cell 0, line 10)
+effcetiverates(apr1, fre1, fre2)
+
+# 把名义利率转换为连续复利利率 + 来自 lecture04/lecture04.ipynb (cell 0, line 15)
+rmtorc(rm, fre)
+
+# 计算连续复利终值 + 来自 lecture04/lecture04.ipynb (cell 0, line 21)
+fv_continuous(pv, rc, t)
+
+# 计算附息债券价格 + 来自 lecture04/lecture04.ipynb (cell 1, line 2)
+bond_price(fv, ytm, couponrate, year, fre)
+
+# 计算零息债券价格 + 来自 lecture04/lecture04.ipynb (cell 1, line 8)
+zero_price(fv, rate, year)
+
+# 计算债券到期收益率 + 来自 lecture04/lecture04.ipynb (cell 1, line 11)
+bond_ytm(pv, fv, couponrate, year, fre)
+
+# 绘制利率期限结构曲线 + 来自 lecture04/lecture04.ipynb (cell 1, line 19)
+plot_yield(time, rate)
+
+# 计算附息债券价格 + 来自 lecture04/lecture04.ipynb (cell 2, line 2)
+bond_price(fv, ytm, couponrate, year, fre)
+
+# 计算麦考利久期 + 来自 lecture04/lecture04.ipynb (cell 2, line 7)
+duration(year, fv, rate, couponrate, fre)
+
+# 计算修正久期 + 来自 lecture04/lecture04.ipynb (cell 2, line 19)
+mod_d(dur, ytm, fre)
+
+# 用戈登增长模型计算股票价值 + 来自 lecture04/lecture04.ipynb (cell 3, line 2)
+gordon(d1, r, g)
+
+# 计算下行半标准差 + 来自 lecture07/lecture7.ipynb (cell 5, line 24)
+lpsd_f(returns, rm)
+
+# 计算两资产投资组合方差 + 来自 lecture09/lecture09.ipynb (cell 3, line 2)
+var2stock(wa, vara, varb, covab)
+
+# 定义用于优化示例的一元目标函数 + 来自 lecture09/lecture09.ipynb (cell 4, line 3)
+myfunction(x)
+
+# 定义 Brent 优化示例的目标函数 + 来自 lecture09/lecture09.ipynb (cell 6, line 25)
+f(x)
+
+# 下载股票并计算年度收益率 + 来自 lecture09/lecture09.ipynb (cell 9, line 19)
+ret_annual(ticker, begdate, enddate)
+
+# 计算多资产投资组合方差 + 来自 lecture09/lecture09.ipynb (cell 9, line 45)
+portfolio_var(r, w)
+
+# 计算投资组合夏普比率 + 来自 lecture09/lecture09.ipynb (cell 9, line 73)
+sharperatio(r, w)
+
+# 用 n-1 个权重表示组合并返回负夏普比率 + 来自 lecture09/lecture09.ipynb (cell 9, line 95)
+sharperatio_n_minus_1_stocks(w)
+
+# 计算看涨期权到期收益 + 来自 lecture10/lecture10.ipynb (cell 0, line 2)
+payoff_calls(st, x)
+
+# 计算看跌期权到期收益 + 来自 lecture10/lecture10.ipynb (cell 1, line 2)
+payoff_put(st, x)
+
+# 用 Black-Scholes 模型计算看涨期权价格 + 来自 lecture10/lecture10.ipynb (cell 2, line 5)
+bs_call(s, x, t, r, sigma)
+
+# 用 Black-Scholes 模型计算看跌期权价格 + 来自 lecture10/lecture10.ipynb (cell 2, line 13)
+bs_put(s, x, t, r, sigma)
+
+# 搜索看涨期权隐含波动率 + 来自 lecture10/lecture10.ipynb (cell 3, line 4)
+implied_vol_call(s, x, t, r, c)
+
+# 搜索看跌期权隐含波动率 + 来自 lecture10/lecture10.ipynb (cell 3, line 14)
+implied_vol_put(s, x, t, r, p)
+
+# 用 Black-Scholes 模型计算看涨期权价格 + 来自 lecture10/lecture10.ipynb (cell 5, line 4)
+bscall(s, x, t, r, sigma)
+
+# 用解析公式计算看涨期权 Delta + 来自 lecture10/lecture10.ipynb (cell 5, line 11)
+delta_f(s, x, t, r, sigma)
+
+# 用数值差分计算看涨期权 Delta + 来自 lecture10/lecture10.ipynb (cell 5, line 16)
+delta_n(s, x, t, r, sigma)
+
+# 用最小误差搜索看跌期权隐含波动率 + 来自 lecture11/lecture11.ipynb (cell 3, line 2)
+implied_vol_put_min(s, x, t, r, p)
+
+# 用最小误差搜索看涨期权隐含波动率 + 来自 lecture11/lecture11.ipynb (cell 4, line 1)
+implied_vol_call_min(s, x, t, r, c)
+
+# 用 Black-Scholes 模型计算看涨期权价格 + 来自 lecture11/lecture11.ipynb (cell 11, line 22)
+bsCall(S, X, T, r, sigma)
+
+# 用解析公式计算 Delta + 来自 lecture11/lecture11.ipynb (cell 11, line 27)
+delta1_f(S, X, T, r, sigma)
+
+# 用数值差分计算 Delta + 来自 lecture11/lecture11.ipynb (cell 11, line 32)
+delta2_f(S, X, T, r, sigma)
+
+# 用 Black-Scholes 模型计算看涨期权价格 + 来自 lecture11/lecture11.ipynb (cell 11, line 56)
+bsCall(S, X, T, r, sigma)
+
+# 用解析公式计算 Gamma + 来自 lecture11/lecture11.ipynb (cell 11, line 63)
+gamma1_f(S, X, T, r, sigma)
+
+# 用前向差分计算 Gamma + 来自 lecture11/lecture11.ipynb (cell 11, line 72)
+gamma2_f(S, X, T, r, sigma)
+
+# 用中心差分计算 Gamma + 来自 lecture11/lecture11.ipynb (cell 11, line 83)
+gamma3_f(S, X, T, r, sigma)
+
+# 用最小误差搜索看跌期权隐含波动率 + 来自 lecture11/lecture11.ipynb (cell 11, line 162)
+implied_vol_put_min(S, X, T, r, p)
+
+# 用中心差分计算 Gamma + 来自 lecture11/summary.md (python block 4, line 1)
+gamma3_f(S, X, T, r, sigma)
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture02/lecture02.ipynb (cell 3, line 15)
+lambda x: (1 + x).prod() - 1
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture02/lecture02.ipynb (cell 3, line 17)
+lambda x: (1 + x).prod() - 1
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 2)
+lambda x: (x[0] - 10) ** 2 + (x[1] - 25) ** 2
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 6)
+lambda x: x[0] + 1 + (x[1] + 2) ** 2 + (x[2] + 3) ** 3
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 11)
+lambda x: (x[0] - 1) ** 2 + (x[1] - 2.5) ** 2
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 13)
+lambda x: x[0] - 2 * x[1] + 2
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 14)
+lambda x: -x[0] - 2 * x[1] + 6
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture09/lecture09.ipynb (cell 6, line 15)
+lambda x: x[0] + 2 * x[1] + 2
+
+# 定义匿名函数用于临时计算或优化约束 + 来自 lecture11/lecture11.ipynb (cell 11, line 193)
+lambda row: implied_vol_call_min(s, row['Strike'], t, r, row['Mid_Price'])
+
+## 自带函数 / 第三方库函数 / 对象方法
+
+# 输出结果 + 来自 lecture02/lecture02.ipynb (cell 0, line 3)
+print
+
+# 查看对象可用属性或函数 + 来自 lecture02/lecture02.ipynb (cell 0, line 3)
+dir
+
+# 计算长度或数量 + 来自 lecture02/lecture02.ipynb (cell 0, line 4)
+len
+
+# 计算金融利率 + 来自 lecture02/lecture02.ipynb (cell 0, line 5)
+npf.rate
+
+# 计算现值 + 来自 lecture02/lecture02.ipynb (cell 0, line 8)
+npf.pv
+
+# 计算绝对值 + 来自 lecture02/lecture02.ipynb (cell 0, line 10)
+abs
+
+# 计算终值 + 来自 lecture02/lecture02.ipynb (cell 1, line 14)
+npf.fv
+
+# 计算净现值 + 来自 lecture02/lecture02.ipynb (cell 2, line 6)
+npf.npv
+
+# 计算内部收益率 + 来自 lecture02/lecture02.ipynb (cell 2, line 8)
+npf.irr
+
+# 生成等间距数值序列 + 来自 lecture02/lecture02.ipynb (cell 2, line 15)
+np.linspace
+
+# 创建绘图画布 + 来自 lecture02/lecture02.ipynb (cell 2, line 17)
+plt.figure
+
+# 绘制曲线 + 来自 lecture02/lecture02.ipynb (cell 2, line 18)
+plt.plot
+
+# 绘制水平参考线 + 来自 lecture02/lecture02.ipynb (cell 2, line 19)
+plt.axhline
+
+# 绘制垂直参考线 + 来自 lecture02/lecture02.ipynb (cell 2, line 20)
+plt.axvline
+
+# 设置 x 轴标签 + 来自 lecture02/lecture02.ipynb (cell 2, line 21)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture02/lecture02.ipynb (cell 2, line 22)
+plt.ylabel
+
+# 设置图标题 + 来自 lecture02/lecture02.ipynb (cell 2, line 23)
+plt.title
+
+# 显示网格 + 来自 lecture02/lecture02.ipynb (cell 2, line 24)
+plt.grid
+
+# 显示图例 + 来自 lecture02/lecture02.ipynb (cell 2, line 25)
+plt.legend
+
+# 自动调整图像布局 + 来自 lecture02/lecture02.ipynb (cell 2, line 26)
+plt.tight_layout
+
+# 显示图像 + 来自 lecture02/lecture02.ipynb (cell 2, line 27)
+plt.show
+
+# 下载金融市场数据 + 来自 lecture02/lecture02.ipynb (cell 3, line 4)
+yf.download
+
+# 计算百分比变化率 + 来自 lecture02/lecture02.ipynb (cell 3, line 6)
+df.pct_change
+
+# 删除缺失值 + 来自 lecture02/lecture02.ipynb (cell 3, line 7)
+df.dropna
+
+# 计算均值 + 来自 lecture02/lecture02.ipynb (cell 3, line 9)
+ret.mean
+
+# 计算标准差 + 来自 lecture02/lecture02.ipynb (cell 3, line 10)
+ret.std
+
+# 进行单样本 t 检验 + 来自 lecture02/lecture02.ipynb (cell 3, line 12)
+stats.ttest_1samp
+
+# 对分组或行列应用函数 + 来自 lecture02/lecture02.ipynb (cell 3, line 15)
+ret.groupby.apply
+
+# 按条件分组 + 来自 lecture02/lecture02.ipynb (cell 3, line 15)
+ret.groupby
+
+# 连乘求积 + 来自 lecture02/lecture02.ipynb (cell 3, line 15)
+prod
+
+# 计算均值 + 来自 lecture02/lecture02.ipynb (cell 3, line 18)
+ret_monthly.mean
+
+# 计算标准差 + 来自 lecture02/lecture02.ipynb (cell 3, line 19)
+ret_monthly.std
+
+# 调用函数或方法完成对应计算 + 来自 lecture02/lecture02.ipynb (cell 3, line 20)
+ret_monthly.max
+
+# 调用函数或方法完成对应计算 + 来自 lecture02/lecture02.ipynb (cell 3, line 21)
+ret_monthly.min
+
+# 读取 pickle 数据 + 来自 lecture02/lecture02.ipynb (cell 4, line 9)
+pd.read_pickle
+
+# 删除缺失值 + 来自 lecture02/lecture02.ipynb (cell 4, line 14)
+df.pct_change.dropna
+
+# 绘制直方图 + 来自 lecture02/lecture02.ipynb (cell 4, line 21)
+plt.hist
+
+# 计算均值 + 来自 lecture02/lecture02.ipynb (cell 4, line 22)
+b.mean
+
+# 计算标准差 + 来自 lecture02/lecture02.ipynb (cell 4, line 23)
+b.std
+
+# 计算概率密度函数 + 来自 lecture02/lecture02.ipynb (cell 4, line 24)
+norm.pdf
+
+# 获取当前工作目录 + 来自 lecture03/lecture03.ipynb (cell 0, line 13)
+os.getcwd
+
+# 输出结果 + 来自 lecture03/lecture03.ipynb (cell 0, line 15)
+print
+
+# 查看对象可用属性或函数 + 来自 lecture03/lecture03.ipynb (cell 0, line 18)
+dir
+
+# 判断字符串前缀 + 来自 lecture03/lecture03.ipynb (cell 0, line 18)
+i.startswith
+
+# 下载金融市场数据 + 来自 lecture03/lecture03.ipynb (cell 1, line 4)
+yf.download
+
+# 删除缺失值 + 来自 lecture03/lecture03.ipynb (cell 1, line 8)
+close_data.dropna
+
+# 向前填充缺失值 + 来自 lecture03/lecture03.ipynb (cell 1, line 9)
+close_data.ffill
+
+# 删除缺失值 + 来自 lecture03/lecture03.ipynb (cell 1, line 11)
+np.log.dropna
+
+# 计算自然对数 + 来自 lecture03/lecture03.ipynb (cell 1, line 11)
+np.log
+
+# 移动序列位置 + 来自 lecture03/lecture03.ipynb (cell 1, line 11)
+close_data_clean.shift
+
+# 复制数据对象 + 来自 lecture03/lecture03.ipynb (cell 1, line 13)
+log_return.copy
+
+# 计算均值 + 来自 lecture03/lecture03.ipynb (cell 1, line 17)
+return2.groupby.mean
+
+# 按条件分组 + 来自 lecture03/lecture03.ipynb (cell 1, line 17)
+return2.groupby
+
+# 删除缺失值 + 来自 lecture03/lecture03.ipynb (cell 1, line 20)
+log_return.dropna
+
+# 进行独立样本 t 检验 + 来自 lecture03/lecture03.ipynb (cell 1, line 22)
+stats.ttest_ind
+
+# 计算均值 + 来自 lecture03/lecture03.ipynb (cell 2, line 5)
+log_return.mean
+
+# 计算标准差 + 来自 lecture03/lecture03.ipynb (cell 2, line 6)
+log_return.std
+
+# 计算平方根 + 来自 lecture03/lecture03.ipynb (cell 2, line 8)
+np.sqrt
+
+# 计算累计乘积 + 来自 lecture03/lecture03.ipynb (cell 3, line 2)
+cumprod
+
+# 绘制曲线 + 来自 lecture03/lecture03.ipynb (cell 3, line 4)
+plt.plot
+
+# 设置图标题 + 来自 lecture03/lecture03.ipynb (cell 3, line 6)
+plt.title
+
+# 设置 x 轴标签 + 来自 lecture03/lecture03.ipynb (cell 3, line 7)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture03/lecture03.ipynb (cell 3, line 8)
+plt.ylabel
+
+# 显示图例 + 来自 lecture03/lecture03.ipynb (cell 3, line 9)
+plt.legend
+
+# 显示网格 + 来自 lecture03/lecture03.ipynb (cell 3, line 10)
+plt.grid
+
+# 自动调整图像布局 + 来自 lecture03/lecture03.ipynb (cell 3, line 11)
+plt.tight_layout
+
+# 显示图像 + 来自 lecture03/lecture03.ipynb (cell 3, line 12)
+plt.show
+
+# 创建 DataFrame + 来自 lecture03/lecture03.ipynb (cell 3, line 14)
+pd.DataFrame
+
+# 输出结果 + 来自 lecture04/lecture04.ipynb (cell 0, line 7)
+print
+
+# 按位数四舍五入 + 来自 lecture04/lecture04.ipynb (cell 0, line 7)
+round
+
+# 计算自然对数 + 来自 lecture04/lecture04.ipynb (cell 0, line 16)
+log
+
+# 计算指数函数 + 来自 lecture04/lecture04.ipynb (cell 0, line 22)
+exp
+
+# 计算现值 + 来自 lecture04/lecture04.ipynb (cell 1, line 6)
+npf.pv
+
+# 计算金融利率 + 来自 lecture04/lecture04.ipynb (cell 1, line 14)
+npf.rate
+
+# 绘制曲线 + 来自 lecture04/lecture04.ipynb (cell 1, line 20)
+plt.plot
+
+# 设置 x 轴标签 + 来自 lecture04/lecture04.ipynb (cell 1, line 21)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture04/lecture04.ipynb (cell 1, line 22)
+plt.ylabel
+
+# 设置图标题 + 来自 lecture04/lecture04.ipynb (cell 1, line 23)
+plt.title
+
+# 显示图像 + 来自 lecture04/lecture04.ipynb (cell 1, line 24)
+plt.show
+
+# 生成整数序列 + 来自 lecture04/lecture04.ipynb (cell 2, line 12)
+range
+
+# 计算净现值 + 来自 lecture04/lecture04.ipynb (cell 3, line 9)
+npf.npv
+
+# 进行一元线性回归 + 来自 lecture05/lecture05.ipynb (cell 0, line 6)
+stats.linregress
+
+# 输出结果 + 来自 lecture05/lecture05.ipynb (cell 0, line 7)
+print
+
+# 设置随机种子 + 来自 lecture05/lecture05.ipynb (cell 0, line 14)
+np.random.seed
+
+# 生成等差数值序列 + 来自 lecture05/lecture05.ipynb (cell 0, line 18)
+np.arange
+
+# 生成均匀随机数 + 来自 lecture05/lecture05.ipynb (cell 0, line 19)
+np.random.rand
+
+# 绘制曲线 + 来自 lecture05/lecture05.ipynb (cell 0, line 21)
+plt.plot
+
+# 显示图像 + 来自 lecture05/lecture05.ipynb (cell 0, line 23)
+plt.show
+
+# 创建 DataFrame + 来自 lecture05/lecture05.ipynb (cell 1, line 3)
+pd.DataFrame
+
+# 合并表格数据 + 来自 lecture05/lecture05.ipynb (cell 1, line 5)
+df1.merge
+
+# 下载金融市场数据 + 来自 lecture05/lecture05.ipynb (cell 1, line 8)
+yf.download
+
+# 计算百分比变化率 + 来自 lecture05/lecture05.ipynb (cell 1, line 10)
+ibm.pct_change
+
+# 计算百分比变化率 + 来自 lecture05/lecture05.ipynb (cell 1, line 11)
+sp500.pct_change
+
+# 合并表格数据 + 来自 lecture05/lecture05.ipynb (cell 1, line 12)
+pd.merge
+
+# 查看前几行 + 来自 lecture05/lecture05.ipynb (cell 1, line 14)
+df.head
+
+# 生成整数序列 + 来自 lecture05/lecture05.ipynb (cell 2, line 6)
+range
+
+# 追加元素或合并数组 + 来自 lecture05/lecture05.ipynb (cell 2, line 12)
+x.append
+
+# 追加元素或合并数组 + 来自 lecture05/lecture05.ipynb (cell 2, line 13)
+y.append
+
+# 计算概率密度函数 + 来自 lecture05/lecture05.ipynb (cell 2, line 13)
+stats.t.pdf
+
+# 设置图标题 + 来自 lecture05/lecture05.ipynb (cell 2, line 15)
+plt.title
+
+# 计算长度或数量 + 来自 lecture05/lecture05.ipynb (cell 3, line 4)
+len
+
+# 给回归自变量添加常数项 + 来自 lecture05/lecture05.ipynb (cell 3, line 5)
+sm.add_constant
+
+# 拟合模型 + 来自 lecture05/lecture05.ipynb (cell 3, line 6)
+sm.OLS.fit
+
+# 建立普通最小二乘回归模型 + 来自 lecture05/lecture05.ipynb (cell 3, line 6)
+sm.OLS
+
+# 输出模型摘要 + 来自 lecture05/lecture05.ipynb (cell 3, line 7)
+results.summary
+
+# 计算百分比变化率 + 来自 lecture05/lecture05.ipynb (cell 4, line 5)
+pct_change
+
+# 删除缺失值 + 来自 lecture05/lecture05.ipynb (cell 4, line 8)
+df.dropna
+
+# 调用函数或方法完成对应计算 + 来自 lecture05/lecture05.ipynb (cell 4, line 12)
+sm.ols
+
+# 拟合模型 + 来自 lecture05/lecture05.ipynb (cell 4, line 12)
+fit
+
+# 切换当前工作目录 + 来自 lecture07/lecture7.ipynb (cell 0, line 4)
+os.chdir
+
+# 下载金融市场数据 + 来自 lecture07/lecture7.ipynb (cell 0, line 9)
+yf.download
+
+# 计算百分比变化率 + 来自 lecture07/lecture7.ipynb (cell 0, line 14)
+ibm.pct_change
+
+# 输出结果 + 来自 lecture07/lecture7.ipynb (cell 0, line 15)
+print
+
+# 查看前几行 + 来自 lecture07/lecture7.ipynb (cell 0, line 15)
+ibm.head
+
+# 读取 pickle 数据 + 来自 lecture07/lecture7.ipynb (cell 0, line 17)
+pd.read_pickle
+
+# 查看前几行 + 来自 lecture07/lecture7.ipynb (cell 0, line 18)
+ff3.head
+
+# 合并表格数据 + 来自 lecture07/lecture7.ipynb (cell 0, line 19)
+ibm.merge
+
+# 查看前几行 + 来自 lecture07/lecture7.ipynb (cell 0, line 20)
+df.head
+
+# 删除缺失值 + 来自 lecture07/lecture7.ipynb (cell 0, line 22)
+df.dropna
+
+# 设置 pandas 显示选项 + 来自 lecture07/lecture7.ipynb (cell 0, line 24)
+pd.set_option
+
+# 给回归自变量添加常数项 + 来自 lecture07/lecture7.ipynb (cell 0, line 28)
+sm.add_constant
+
+# 拟合模型 + 来自 lecture07/lecture7.ipynb (cell 0, line 29)
+sm.OLS.fit
+
+# 建立普通最小二乘回归模型 + 来自 lecture07/lecture7.ipynb (cell 0, line 29)
+sm.OLS
+
+# 输出模型摘要 + 来自 lecture07/lecture7.ipynb (cell 0, line 30)
+results.summary
+
+# 生成等差数值序列 + 来自 lecture07/lecture7.ipynb (cell 1, line 5)
+np.arange
+
+# 计算概率密度函数 + 来自 lecture07/lecture7.ipynb (cell 1, line 9)
+stats.f.pdf
+
+# 设置图标题 + 来自 lecture07/lecture7.ipynb (cell 1, line 11)
+plt.title
+
+# 设置 x 轴标签 + 来自 lecture07/lecture7.ipynb (cell 1, line 12)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture07/lecture7.ipynb (cell 1, line 13)
+plt.ylabel
+
+# 绘制曲线 + 来自 lecture07/lecture7.ipynb (cell 1, line 14)
+plt.plot
+
+# 显示图像 + 来自 lecture07/lecture7.ipynb (cell 1, line 15)
+plt.show
+
+# 计算累计分布函数 + 来自 lecture07/lecture7.ipynb (cell 1, line 18)
+stats.f.cdf
+
+# 计算分位数函数 + 来自 lecture07/lecture7.ipynb (cell 1, line 21)
+stats.f.ppf
+
+# 计算百分比变化率 + 来自 lecture07/lecture7.ipynb (cell 2, line 12)
+sp500.pct_change
+
+# 提取唯一值 + 来自 lecture07/lecture7.ipynb (cell 2, line 16)
+np.unique
+
+# 按位数四舍五入 + 来自 lecture07/lecture7.ipynb (cell 2, line 25)
+round
+
+# 追加元素或合并数组 + 来自 lecture07/lecture7.ipynb (cell 2, line 26)
+betas.append
+
+# 创建 DataFrame + 来自 lecture07/lecture7.ipynb (cell 2, line 28)
+pd.DataFrame
+
+# 计算均值 + 来自 lecture07/lecture7.ipynb (cell 3, line 7)
+df3.ret.mean
+
+# 计算标准差 + 来自 lecture07/lecture7.ipynb (cell 3, line 8)
+df3.RF.std
+
+# 计算均值 + 来自 lecture07/lecture7.ipynb (cell 3, line 9)
+df3.RF.mean
+
+# 取最后若干行 + 来自 lecture07/lecture7.ipynb (cell 3, line 15)
+ibm.tail
+
+# 合并表格数据 + 来自 lecture07/lecture7.ipynb (cell 3, line 17)
+df2.merge
+
+# 计算自然对数 + 来自 lecture07/lecture7.ipynb (cell 3, line 25)
+np.log
+
+# 计算指数函数 + 来自 lecture07/lecture7.ipynb (cell 3, line 27)
+np.exp
+
+# 求和 + 来自 lecture07/lecture7.ipynb (cell 3, line 27)
+ibm.groupby.sum
+
+# 按条件分组 + 来自 lecture07/lecture7.ipynb (cell 3, line 27)
+ibm.groupby
+
+# 合并表格数据 + 来自 lecture07/lecture7.ipynb (cell 3, line 36)
+annualret2.merge
+
+# 计算均值 + 来自 lecture07/lecture7.ipynb (cell 3, line 38)
+df4.annualret.mean
+
+# 计算标准差 + 来自 lecture07/lecture7.ipynb (cell 3, line 39)
+df4.RF.std
+
+# 计算均值 + 来自 lecture07/lecture7.ipynb (cell 3, line 40)
+df4.RF.mean
+
+# 堆叠数组 + 来自 lecture07/lecture7.ipynb (cell 4, line 4)
+np.stack
+
+# 计算协方差矩阵 + 来自 lecture07/lecture7.ipynb (cell 4, line 5)
+np.cov
+
+# 设置随机种子 + 来自 lecture07/lecture7.ipynb (cell 5, line 4)
+np.random.seed
+
+# 生成正态随机数 + 来自 lecture07/lecture7.ipynb (cell 5, line 10)
+np.random.normal
+
+# 计算平方根 + 来自 lecture07/lecture7.ipynb (cell 5, line 20)
+np.sqrt
+
+# 计算长度或数量 + 来自 lecture07/lecture7.ipynb (cell 5, line 32)
+len
+
+# 计算百分比变化率 + 来自 lecture07/lecture7.ipynb (cell 6, line 7)
+df5.pct_change
+
+# 删除缺失值 + 来自 lecture07/lecture7.ipynb (cell 6, line 9)
+df5.dropna
+
+# 读取 pickle 数据 + 来自 lecture08/lecture08.ipynb (cell 0, line 6)
+pd.read_pickle
+
+# 输出结果 + 来自 lecture08/lecture08.ipynb (cell 0, line 10)
+print
+
+# 查看前几行 + 来自 lecture08/lecture08.ipynb (cell 0, line 10)
+ff3.head
+
+# 计算累计分布函数 + 来自 lecture08/lecture08.ipynb (cell 0, line 19)
+stats.norm.cdf
+
+# 生成等差数值序列 + 来自 lecture08/lecture08.ipynb (cell 0, line 25)
+np.arange
+
+# 计算概率密度函数 + 来自 lecture08/lecture08.ipynb (cell 0, line 26)
+stats.norm.pdf
+
+# 绘制曲线 + 来自 lecture08/lecture08.ipynb (cell 0, line 27)
+plt.plot
+
+# 计算分位数函数 + 来自 lecture08/lecture08.ipynb (cell 0, line 29)
+stats.norm.ppf
+
+# 绘制竖线 + 来自 lecture08/lecture08.ipynb (cell 0, line 32)
+plt.vlines
+
+# 绘制水平参考线 + 来自 lecture08/lecture08.ipynb (cell 0, line 35)
+plt.axhline
+
+# 添加图中文字 + 来自 lecture08/lecture08.ipynb (cell 0, line 37)
+plt.figtext
+
+# 设置图标题 + 来自 lecture08/lecture08.ipynb (cell 0, line 38)
+plt.title
+
+# 调用函数或方法完成对应计算 + 来自 lecture08/lecture08.ipynb (cell 0, line 39)
+plt.xlable
+
+# 设置 y 轴标签 + 来自 lecture08/lecture08.ipynb (cell 0, line 40)
+plt.ylabel
+
+# 显示图像 + 来自 lecture08/lecture08.ipynb (cell 0, line 41)
+plt.show
+
+# 生成正态随机数 + 来自 lecture08/lecture08.ipynb (cell 1, line 7)
+np.random.normal
+
+# 计算平方根 + 来自 lecture08/lecture08.ipynb (cell 1, line 10)
+np.sqrt
+
+# 计算绝对值 + 来自 lecture08/lecture08.ipynb (cell 1, line 12)
+abs
+
+# 生成整数序列 + 来自 lecture08/lecture08.ipynb (cell 2, line 4)
+range
+
+# 计算长度或数量 + 来自 lecture08/lecture08.ipynb (cell 2, line 4)
+len
+
+# 给回归自变量添加常数项 + 来自 lecture08/lecture08.ipynb (cell 2, line 5)
+sm.add_constant
+
+# 拟合模型 + 来自 lecture08/lecture08.ipynb (cell 2, line 6)
+sm.OLS.fit
+
+# 建立普通最小二乘回归模型 + 来自 lecture08/lecture08.ipynb (cell 2, line 6)
+sm.OLS
+
+# 计算自然对数 + 来自 lecture08/lecture08.ipynb (cell 3, line 5)
+log
+
+# 计算指数函数 + 来自 lecture08/lecture08.ipynb (cell 3, line 6)
+exp
+
+# 读取 CSV 数据 + 来自 lecture08/lecture08.ipynb (cell 4, line 4)
+pd.read_csv
+
+# 调用函数或方法完成对应计算 + 来自 lecture08/lecture08.ipynb (cell 4, line 7)
+group1.extra.var
+
+# 调用函数或方法完成对应计算 + 来自 lecture08/lecture08.ipynb (cell 4, line 8)
+group2.extra.var
+
+# 取最大值 + 来自 lecture08/lecture08.ipynb (cell 4, line 11)
+max
+
+# 取最小值 + 来自 lecture08/lecture08.ipynb (cell 4, line 11)
+min
+
+# 计算分位数函数 + 来自 lecture08/lecture08.ipynb (cell 4, line 16)
+stats.f.ppf
+
+# 进行方差齐性检验 + 来自 lecture08/lecture08.ipynb (cell 4, line 26)
+stats.levene
+
+# 计算均值 + 来自 lecture08/lecture08.ipynb (cell 4, line 30)
+group1.extra.mean
+
+# 计算均值 + 来自 lecture08/lecture08.ipynb (cell 4, line 31)
+group2.extra.mean
+
+# 进行独立样本 t 检验 + 来自 lecture08/lecture08.ipynb (cell 4, line 33)
+stats.ttest_ind
+
+# 计算百分比变化率 + 来自 lecture08/lecture08.ipynb (cell 5, line 4)
+df1.pct_change
+
+# 计算百分比变化率 + 来自 lecture08/lecture08.ipynb (cell 5, line 5)
+df2.pct_change
+
+# 合并表格数据 + 来自 lecture08/lecture08.ipynb (cell 5, line 6)
+df1.merge
+
+# 删除缺失值 + 来自 lecture08/lecture08.ipynb (cell 5, line 7)
+df.dropna
+
+# 调用函数或方法完成对应计算 + 来自 lecture08/lecture08.ipynb (cell 5, line 8)
+stats.ttset_ind
+
+# 删除缺失值 + 来自 lecture08/lecture08.ipynb (cell 5, line 15)
+df1.dropna
+
+# 计算自相关函数 + 来自 lecture08/lecture08.ipynb (cell 6, line 2)
+sm.tsa.acf
+
+# 删除缺失值 + 来自 lecture08/lecture08.ipynb (cell 6, line 2)
+df1.ibmret.dropna
+
+# 移动序列位置 + 来自 lecture08/lecture08.ipynb (cell 7, line 12)
+df.chicken.shift
+
+# 移动序列位置 + 来自 lecture08/lecture08.ipynb (cell 7, line 16)
+df.egg.shift
+
+# 输出模型摘要 + 来自 lecture08/lecture08.ipynb (cell 7, line 25)
+results.summary
+
+# 计算自然对数 + 来自 lecture08/lecture08.ipynb (cell 8, line 35)
+np.log
+
+# 计算指数函数 + 来自 lecture08/lecture08.ipynb (cell 8, line 37)
+np.exp
+
+# 求和 + 来自 lecture08/lecture08.ipynb (cell 8, line 37)
+df.groupby.sum
+
+# 按条件分组 + 来自 lecture08/lecture08.ipynb (cell 8, line 37)
+df.groupby
+
+# 创建 DataFrame + 来自 lecture08/lecture08.ipynb (cell 8, line 38)
+pd.DataFrame
+
+# 转换为整数 + 来自 lecture08/lecture08.ipynb (cell 8, line 48)
+int
+
+# 追加元素或合并数组 + 来自 lecture08/lecture08.ipynb (cell 8, line 52)
+janret.append
+
+# 追加元素或合并数组 + 来自 lecture08/lecture08.ipynb (cell 8, line 54)
+nonjanret.append
+
+# 追加元素或合并数组 + 来自 lecture08/lecture08.ipynb (cell 8, line 68)
+evenret.append
+
+# 追加元素或合并数组 + 来自 lecture08/lecture08.ipynb (cell 8, line 70)
+oddret.append
+
+# 设置随机种子 + 来自 lecture09/lecture09.ipynb (cell 1, line 2)
+np.random.seed
+
+# 生成正态随机数 + 来自 lecture09/lecture09.ipynb (cell 1, line 6)
+np.random.normal
+
+# 输出结果 + 来自 lecture09/lecture09.ipynb (cell 1, line 8)
+print
+
+# 计算平方根 + 来自 lecture09/lecture09.ipynb (cell 1, line 12)
+np.sqrt
+
+# 计算相关系数矩阵 + 来自 lecture09/lecture09.ipynb (cell 1, line 13)
+np.corrcoef
+
+# 最小化目标函数 + 来自 lecture09/lecture09.ipynb (cell 4, line 7)
+minimize
+
+# 计算指数函数 + 来自 lecture09/lecture09.ipynb (cell 6, line 26)
+np.exp
+
+# 生成等差数值序列 + 来自 lecture09/lecture09.ipynb (cell 6, line 27)
+np.arange
+
+# 用 Brent 方法求一维最小值 + 来自 lecture09/lecture09.ipynb (cell 6, line 30)
+optimize.brent
+
+# 计算长度或数量 + 来自 lecture09/lecture09.ipynb (cell 9, line 12)
+len
+
+# 下载金融市场数据 + 来自 lecture09/lecture09.ipynb (cell 9, line 22)
+yf.download
+
+# 计算自然对数 + 来自 lecture09/lecture09.ipynb (cell 9, line 25)
+np.log
+
+# 移动序列位置 + 来自 lecture09/lecture09.ipynb (cell 9, line 25)
+df.shift
+
+# 求和 + 来自 lecture09/lecture09.ipynb (cell 9, line 31)
+df.groupby.sum
+
+# 按条件分组 + 来自 lecture09/lecture09.ipynb (cell 9, line 31)
+df.groupby
+
+# 创建 DataFrame + 来自 lecture09/lecture09.ipynb (cell 9, line 34)
+pd.DataFrame
+
+# 计算标准差 + 来自 lecture09/lecture09.ipynb (cell 9, line 51)
+np.std
+
+# 生成整数序列 + 来自 lecture09/lecture09.ipynb (cell 9, line 55)
+range
+
+# 计算均值 + 来自 lecture09/lecture09.ipynb (cell 9, line 79)
+np.mean
+
+# 计算点积 + 来自 lecture09/lecture09.ipynb (cell 9, line 82)
+np.dot
+
+# 追加元素或合并数组 + 来自 lecture09/lecture09.ipynb (cell 9, line 98)
+np.append
+
+# 求和 + 来自 lecture09/lecture09.ipynb (cell 9, line 98)
+sum
+
+# 合并表格数据 + 来自 lecture09/lecture09.ipynb (cell 9, line 115)
+x2.merge
+
+# 转换为 NumPy 数组 + 来自 lecture09/lecture09.ipynb (cell 9, line 122)
+np.array
+
+# 生成全 1 数组 + 来自 lecture09/lecture09.ipynb (cell 9, line 132)
+np.ones
+
+# 用单纯形法最小化目标函数 + 来自 lecture09/lecture09.ipynb (cell 9, line 147)
+fmin
+
+# 计算绝对值 + 来自 lecture10/lecture10.ipynb (cell 0, line 3)
+abs
+
+# 生成等差数值序列 + 来自 lecture10/lecture10.ipynb (cell 0, line 7)
+np.arange
+
+# 绘制曲线 + 来自 lecture10/lecture10.ipynb (cell 0, line 10)
+plt.plot
+
+# 设置 x 轴标签 + 来自 lecture10/lecture10.ipynb (cell 0, line 11)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture10/lecture10.ipynb (cell 0, line 12)
+plt.ylabel
+
+# 显示图像 + 来自 lecture10/lecture10.ipynb (cell 0, line 13)
+plt.show
+
+# 计算自然对数 + 来自 lecture10/lecture10.ipynb (cell 2, line 6)
+log
+
+# 计算平方根 + 来自 lecture10/lecture10.ipynb (cell 2, line 6)
+sqrt
+
+# 计算累计分布函数 + 来自 lecture10/lecture10.ipynb (cell 2, line 8)
+stats.norm.cdf
+
+# 计算指数函数 + 来自 lecture10/lecture10.ipynb (cell 2, line 8)
+exp
+
+# 输出结果 + 来自 lecture10/lecture10.ipynb (cell 2, line 10)
+print
+
+# 生成整数序列 + 来自 lecture10/lecture10.ipynb (cell 3, line 5)
+range
+
+# 计算累计分布函数 + 来自 lecture10/summary.md (python block 1, line 1)
+stats.norm.cdf
+
+# 计算指数函数 + 来自 lecture10/summary.md (python block 1, line 1)
+exp
+
+# 读取表格文本数据 + 来自 lecture11/lecture11.ipynb (cell 1, line 3)
+pd.read_table
+
+# 创建日期对象 + 来自 lecture11/lecture11.ipynb (cell 2, line 5)
+datetime.date
+
+# 生成等差数值序列 + 来自 lecture11/lecture11.ipynb (cell 3, line 5)
+np.arange
+
+# 计算自然对数 + 来自 lecture11/lecture11.ipynb (cell 3, line 7)
+log
+
+# 计算平方根 + 来自 lecture11/lecture11.ipynb (cell 3, line 7)
+sqrt
+
+# 计算指数函数 + 来自 lecture11/lecture11.ipynb (cell 3, line 9)
+exp
+
+# 计算累计分布函数 + 来自 lecture11/lecture11.ipynb (cell 3, line 9)
+stats.norm.cdf
+
+# 计算绝对值 + 来自 lecture11/lecture11.ipynb (cell 3, line 10)
+abs
+
+# 输出结果 + 来自 lecture11/lecture11.ipynb (cell 3, line 16)
+print
+
+# 计算累计分布函数 + 来自 lecture11/lecture11.ipynb (cell 4, line 8)
+satas.norm.cdf
+
+# 读取 pickle 数据 + 来自 lecture11/lecture11.ipynb (cell 5, line 3)
+pd.read_pickle
+
+# 计算长度或数量 + 来自 lecture11/lecture11.ipynb (cell 5, line 7)
+len
+
+# 转换为整数 + 来自 lecture11/lecture11.ipynb (cell 5, line 8)
+int
+
+# 转换为浮点数 + 来自 lecture11/lecture11.ipynb (cell 5, line 10)
+float
+
+# 生成整数序列 + 来自 lecture11/lecture11.ipynb (cell 9, line 1)
+range
+
+# 追加元素或合并数组 + 来自 lecture11/lecture11.ipynb (cell 9, line 9)
+strike.append
+
+# 追加元素或合并数组 + 来自 lecture11/lecture11.ipynb (cell 9, line 10)
+implied_vol.append
+
+# 追加元素或合并数组 + 来自 lecture11/lecture11.ipynb (cell 9, line 11)
+call2.append
+
+# 绘制曲线 + 来自 lecture11/lecture11.ipynb (cell 9, line 15)
+plt.plot
+
+# 设置图标题 + 来自 lecture11/lecture11.ipynb (cell 9, line 16)
+plt.title
+
+# 设置 x 轴标签 + 来自 lecture11/lecture11.ipynb (cell 9, line 17)
+plt.xlabel
+
+# 设置 y 轴标签 + 来自 lecture11/lecture11.ipynb (cell 9, line 18)
+plt.ylabel
+
+# 连接 SQLite 数据库 + 来自 lecture11/lecture11.ipynb (cell 10, line 3)
+sqlite3.connect
+
+# 创建数据库游标 + 来自 lecture11/lecture11.ipynb (cell 10, line 4)
+conn.cursor
+
+# 执行 SQL 语句 + 来自 lecture11/lecture11.ipynb (cell 10, line 6)
+cursor.execute
+
+# 批量执行 SQL 语句 + 来自 lecture11/lecture11.ipynb (cell 10, line 11)
+cursor.executemany
+
+# 执行 SQL 查询并读为 DataFrame + 来自 lecture11/lecture11.ipynb (cell 10, line 22)
+pd.read_sql_query
+
+# 导出 CSV 文件 + 来自 lecture11/lecture11.ipynb (cell 10, line 23)
+df.to_csv
+
+# 按位数四舍五入 + 来自 lecture11/lecture11.ipynb (cell 11, line 41)
+round
+
+# 计算概率密度函数 + 来自 lecture11/lecture11.ipynb (cell 11, line 65)
+stats.norm.pdf
+
+# 关闭数据库连接 + 来自 lecture11/lecture11.ipynb (cell 11, line 153)
+conn.close
+
+# 复制数据对象 + 来自 lecture11/lecture11.ipynb (cell 11, line 189)
+calls.copy
+
+# 对分组或行列应用函数 + 来自 lecture11/lecture11.ipynb (cell 11, line 193)
+calls_clean.apply
+
+# 批量执行 SQL 语句 + 来自 lecture11/summary.md (python block 1, line 1)
+cursor.executemany
+
+# 计算概率密度函数 + 来自 lecture11/summary.md (python block 2, line 1)
+stats.norm.pdf
+
+# 计算平方根 + 来自 lecture11/summary.md (python block 2, line 1)
+sqrt
+
+## 解析备注
+
+# 该代码块存在语法问题，已尽量用正则补充提取函数 + 来自 lecture05/lecture05.ipynb (cell 4, line 1: invalid syntax)
